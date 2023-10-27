@@ -1,5 +1,5 @@
 <template>
-  <div>企业文化</div>
+  <div>hot</div>
 </template>
 
 <script setup lang="ts"></script>
