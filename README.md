@@ -2,6 +2,35 @@
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
+## template
+
+可以通过下载 template 分支内容，得到一个配置完整的 Nuxt 项目。
+
+```
+|--pages
+    |--home
+        |--homePage.vue
+    |--home.vue
+|--components
+    |-- Header.vue
+|--layouts
+    |-- default.vue
+    |-- notab.vue
+|--middleware
+    |-- redirect.global.ts
+```
+
+已经配置好了路由重定向
+
+```
+export default defineNuxtRouteMiddleware((to, from) => {
+  if (to.fullPath === '/' || to.fullPath === '/home') {
+    return navigateTo('/home/homePage')
+  }
+})
+
+```
+
 ## Setup
 
 Make sure to install the dependencies:
@@ -10,51 +39,27 @@ Make sure to install the dependencies:
 # npm
 npm install
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
 ## Development Server
-
-Start the development server on `http://localhost:3000`:
 
 ```bash
 # npm
 npm run dev
 
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
 ## Production
 
 Build the application for production:
 
-```bash
+使用 nuxt 实现一个官网的 demo 样式，
+
+````bash
 # npm
 npm run build
 
-# pnpm
-pnpm run build
 
-# yarn
-yarn build
-
-# bun
-bun run build
-```
 
 Locally preview production build:
 
@@ -62,14 +67,7 @@ Locally preview production build:
 # npm
 npm run preview
 
-# pnpm
-pnpm run preview
 
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
+````
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
