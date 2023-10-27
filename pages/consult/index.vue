@@ -2,7 +2,7 @@
   <div>资讯</div>
   <NuxtLink to="/consult/hot">Hot</NuxtLink>
   <div>--------------------------</div>
-  <NuxtPage></NuxtPage>
+  <!-- <NuxtPage></NuxtPage> -->
 </template>
 
 <script setup lang="ts"></script>

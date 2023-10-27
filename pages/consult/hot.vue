@@ -1,5 +1,5 @@
 <template>
-  <div>hot</div>
+  <div>hot!!!!!!!!!!!!</div>
 </template>
 
 <script setup lang="ts"></script>
