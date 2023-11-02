@@ -1,5 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-
+import VueI18nVitePlugin from '@intlify/unplugin-vue-i18n/vite'
+import { resolve, dirname } from 'node:path'
+import { fileURLToPath } from 'url'
 export default defineNuxtConfig({
   devtools: { enabled: true },
   //   页面过度
@@ -8,6 +10,13 @@ export default defineNuxtConfig({
     // 布局过渡
     layoutTransition: { name: 'layout', mode: 'out-in' }
   },
+  // 模块配置
+  modules: [
+    // ...
+    '@pinia/nuxt',
+    // pinia存储插件
+    '@pinia-plugin-persistedstate/nuxt'
+  ],
   // 反向代理
   nitro: {
     devProxy: {
@@ -16,12 +25,27 @@ export default defineNuxtConfig({
         changeOrigin: true,
         prependPath: true
       }
-    },
-    // 该配置用于服务端请求转发 -- 这里使用时首屏加载不发请求
-    routeRules: {
-      '/api/**': {
-        proxy: 'https://i.maoyan.com/api/**'
-      }
     }
+    // 该配置用于服务端请求转发 -- 这里使用时首屏加载不发请求 前端代理成功 后台代理失败。不理解
+    // routeRules: {
+    //   '/api/**': {
+    //     proxy: 'https://i.maoyan.com/api/**'
+    //   }
+    // }
+  },
+  build: {
+    transpile: [/vue-i18n/]
+  },
+  vite: {
+    resolve: {
+      alias: {
+        'vue-i18n': 'vue-i18n/dist/vue-i18n.runtime.esm-bundler.js'
+      }
+    },
+    plugins: [
+      VueI18nVitePlugin({
+        include: [resolve(dirname(fileURLToPath(import.meta.url)), './i18n/*.ts')]
+      })
+    ]
   }
 })

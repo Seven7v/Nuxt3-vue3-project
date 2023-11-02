@@ -1,16 +1,11 @@
 <template>
-  <div class="mod-header">
-    <div>
-      <img src="../assets/img/logo.svg" alt="" />
-      <div class="menu-wrapper">
-        <NuxtLink v-for="m of menu" :key="m.name" :to="m.to" active-class="active">
-          {{ m.name }}
-        </NuxtLink>
-        <select>
-          <option value="zh-cn">中文</option>
-          <option value="en-us">English</option>
-        </select>
-      </div>
+  <div class="mod-header" :style="navStyle">
+    <div class="menu-wrapper" ref="menuRef">
+      <img src="../assets/img/logo.svg" class="logo" alt="" />
+      <NuxtLink v-for="m of menu" :key="m.name" :to="m.to" active-class="active">
+        {{ $t(m.name) }}
+      </NuxtLink>
+      <Lang />
     </div>
   </div>
 </template>
@@ -18,37 +13,45 @@
 <script setup>
 const menu = [
   {
-    name: '首页',
+    name: 'home',
     to: '/home'
   },
   {
-    name: '产品中心',
+    name: 'product',
     to: '/product'
   },
   {
-    name: '关于我们',
+    name: 'about',
     to: '/about'
   },
   {
-    name: '资讯',
+    name: 'consult',
     to: '/consult'
   }
 ]
+const navStyle = useState('navStyle')
 </script>
 
 <style lang="scss" scoped>
-a {
-  text-decoration: none;
-  display: block;
-  color: #000;
-  min-width: 80px;
-}
-.active {
-  border-bottom: 2px solid #000;
-}
-.menu-wrapper {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.mod-header {
+  width: 100%;
+  position: fixed;
+  .logo {
+    width: 50px;
+  }
+  a {
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    min-width: 80px;
+  }
+  .active {
+    border-bottom: 2px solid #000;
+  }
+  .menu-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 }
 </style>

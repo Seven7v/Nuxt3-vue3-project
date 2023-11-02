@@ -11,12 +11,17 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@nuxtjs/i18n": "^8.0.0-rc.5",
+    "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
     "nuxt": "^3.8.0",
     "vue": "^3.3.7",
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "sass": "^1.69.5"
+    "@intlify/unplugin-vue-i18n": "^1.5.0",
+    "@pinia/nuxt": "^0.5.1",
+    "element-plus": "^2.4.1",
+    "pinia": "^2.1.7",
+    "sass": "^1.69.5",
+    "vue-i18n": "^9.6.4"
   }
 }
