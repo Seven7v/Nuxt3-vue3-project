@@ -8,7 +8,10 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'app', mode: 'out-in' },
     // 布局过渡
-    layoutTransition: { name: 'layout', mode: 'out-in' }
+    layoutTransition: { name: 'layout', mode: 'out-in' },
+    head: {
+      meta: [{ name: 'referrer', content: 'no-referrer' }]
+    }
   },
   // 模块配置
   modules: [

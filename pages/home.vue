@@ -1,6 +1,19 @@
 <template>
   <div class="mode-home">
-    <div class="banner">banner页面</div>
+    <el-carousel height="900px" class="banner">
+      <!-- <el-carousel-item v-for="item in bannerList" :key="item.to">
+        <img :src="item.img" style="width: 100%" alt="" />
+      </el-carousel-item> -->
+      <el-carousel-item>
+        <div class="banner banner1"></div>
+      </el-carousel-item>
+      <el-carousel-item>
+        <div class="banner banner2"></div>
+      </el-carousel-item>
+      <el-carousel-item>
+        <div class="banner banner3"></div>
+      </el-carousel-item>
+    </el-carousel>
     <div v-for="item of data" :key="item.name">
       {{ item.name }}
       <el-card class="box-card">
@@ -18,6 +31,20 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+const bannerList = [
+  {
+    to: '/product/introduce',
+    img: 'https://pic2.zhimg.com/v2-84695046fe3f6a97c1e6868a1a43f641_r.jpg'
+  },
+  {
+    to: '/product/introduce',
+    img: 'https://pic2.zhimg.com/v2-a8055d40599528dcc84c67355dac91f1_r.jpg'
+  },
+  {
+    to: '/product/introduce',
+    img: 'https://pic1.zhimg.com/v2-c2bc308ed73d97e1c27b8be03d73781c_r.jpg'
+  }
+]
 const list = ref([])
 const scorll = ref(0)
 const { data } = await useFetch(
@@ -53,7 +80,17 @@ const handleScroll = () => {
 <style scoped>
 .banner {
   width: 100%;
-  height: 600px;
-  background: #3c393c;
+  height: 900px;
+  background-size: cover;
+  background-position: center;
+}
+.banner1 {
+  background-image: url(https://pic2.zhimg.com/v2-84695046fe3f6a97c1e6868a1a43f641_r.jpg);
+}
+.banner2 {
+  background-image: url(https://pic2.zhimg.com/v2-a8055d40599528dcc84c67355dac91f1_r.jpg);
+}
+.banner3 {
+  background-image: url(https://pic1.zhimg.com/v2-c2bc308ed73d97e1c27b8be03d73781c_r.jpg);
 }
 </style>
