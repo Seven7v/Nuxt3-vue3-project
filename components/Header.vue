@@ -13,9 +13,10 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { Menus } from '~/types/menu'
 import { ref, onMounted } from 'vue'
-const menus = [
+const menus: Array<Menus> = [
   {
     title: 'product',
     children: [
@@ -82,13 +83,13 @@ const menus = [
       },
       {
         name: 'consultClass',
-        desc: 'Product Categories',
+        desc: 'categories',
         path: '/product/introduce',
         img: 'https://img95.699pic.com/photo/50236/7640.jpg_wh300.jpg'
       },
       {
         name: 'consultMessage',
-        desc: 'Product template',
+        desc: 'productTemplate',
         path: '/product/introduce',
         img: 'https://qmsck.com/wp-content/uploads/2023/04/10%E6%AC%BE%E9%AB%98%E6%B8%85%E6%9C%AA%E6%9D%A5%E6%B4%BE%E9%9C%93%E8%99%B9%E8%B5%9B%E5%8D%9A%E6%9C%8B%E5%85%8B%E9%A3%8E3D%E7%A9%BA%E9%97%B4%E8%B5%B0%E5%BB%8A%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E8%AE%BE%E8%AE%A1%E7%B4%A0%E6%9D%90-Sci-Fi-Futuristic-Ne_02.png'
       },
@@ -111,7 +112,7 @@ const menus = [
     children: [
       {
         name: 'about',
-        desc: 'introduceProduct',
+        desc: 'about',
         path: '/about',
         img: 'https://img95.699pic.com/photo/60045/0889.jpg_wh300.jpg',
         children: [
@@ -127,7 +128,7 @@ const menus = [
       },
       {
         name: 'concate',
-        desc: 'Product Categories',
+        desc: 'concate',
         path: '/product/introduce',
         img: 'https://img95.699pic.com/photo/50236/7640.jpg_wh300.jpg'
       }
@@ -163,3 +164,4 @@ const navStyle = useState('navStyle')
   }
 }
 </style>
+../@types/menu

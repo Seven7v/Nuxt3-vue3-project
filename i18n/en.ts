@@ -4,7 +4,8 @@ export default {
   about: 'About Us',
   consult: 'Consult',
   introduce: 'Introduce',
-  introduceProduct: 'Introduce for Product',
+  introduceProduct:
+    'Introduce for Product, Here is the project description (you can design it yourself)',
   design: 'Product Design',
   preview: 'Product Preview',
   class: 'Categories',
@@ -17,5 +18,8 @@ export default {
   consultMessage: 'Consult Message',
   consult1: 'Consult1',
   consult2: 'Consult2',
-  concate: 'Concate Us'
+  concate: 'Concate Us',
+  newTry: 'This is our new attempt!',
+  lyberpink: 'LyberPink',
+  whyus: 'Welcome to experience and use our product, it can balabala'
 }

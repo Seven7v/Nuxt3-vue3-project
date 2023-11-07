@@ -2,15 +2,18 @@
   <div class="mod-menu">
     <el-tooltip placement="bottom">
       <template #content>
-        <div class="menu-wrapper">
-          <div v-for="item of props.menus" :key="item.name">
-            <div>
-              <NuxtLink :to="item.path">{{ $t(item.name) }}</NuxtLink>
-              <div>{{ $t(item.desc) }}</div>
+        <div class="menus-wrapper">
+          <div class="menus-list">
+            <div v-for="item of props.menus" :key="item.name">
+              <div class="menu-item" @mouseover="mouseoverItem(item)" @mouseleave="mouseleaveItem">
+                <NuxtLink :to="item.path">{{ $t(item.name) }}</NuxtLink>
+                <div class="desc">{{ $t(item.desc) }}</div>
+              </div>
             </div>
           </div>
+
           <div>
-            <img :src="current" alt="" />
+            <img class="menus-img" :src="current" alt="" />
           </div>
         </div>
       </template>
@@ -20,6 +23,7 @@
 </template>
 
 <script setup lang="ts">
+import type { MenuItem } from '~/types/menu'
 import { ref } from 'vue'
 const props = defineProps({
   title: {
@@ -31,7 +35,14 @@ const props = defineProps({
     default: []
   }
 })
-const current = ref('https://img95.699pic.com/photo/60045/0889.jpg_wh300.jpg')
+const current = ref('')
+const mouseoverItem = (item: MenuItem) => {
+  console.log(item)
+  current.value = item.img
+}
+const mouseleaveItem = () => {
+  current.value = ''
+}
 </script>
 <style lang="scss">
 .mod-menu {
@@ -44,16 +55,32 @@ const current = ref('https://img95.699pic.com/photo/60045/0889.jpg_wh300.jpg')
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,
       sans-serif;
   }
-  .menu-wrapper {
-    width: 100% !important;
-    height: 600px;
-  }
+}
+.menus-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+}
+.menu-item {
+  padding: 40px;
+  max-width: 300px;
+  box-sizing: border-box;
+}
+.menus-list {
+  display: flex;
+  max-width: 1000px;
+  flex-wrap: wrap;
+}
+.menus-img {
+  height: 350px;
 }
 a {
   text-decoration: none;
   display: block;
   color: #fff;
-  min-width: 80px;
+  font-size: 16px;
+  min-width: 240px;
+  margin-bottom: 20px;
 }
 .el-popper {
   width: 98vw;
