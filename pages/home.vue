@@ -9,21 +9,26 @@
           <div class="banner-title">
             {{ $t(item.title) }}
             <div class="banner-desc">{{ $t(item.desc) }}</div>
+            <el-button class="banner-btn" type="primary" v-if="item.btn">
+              {{ $t(item.btn) }}
+            </el-button>
           </div>
         </div>
       </el-carousel-item>
     </el-carousel>
-    <preview-card />
+    <preview-card :title="$t('whatWeDo')" :content="content" />
   </div>
 </template>
 
 <script setup lang="ts">
+import type { PreviewContent } from '~/types/home'
 import { ref, onMounted } from 'vue'
 const bannerList = [
   {
     to: '/product/introduce',
     title: 'lyberpink',
-    desc: 'whyus'
+    desc: 'whyus',
+    btn: 'go'
   },
   {
     to: '/product/introduce',
@@ -36,6 +41,19 @@ const bannerList = [
     desc: 'whyus'
   }
 ]
+
+const previewContent: PreviewContent = {
+  img: 'https://pic3.zhimg.com/v2-06f7dd55a1df07f7c962fa95f2945532_r.jpg',
+  moreList: [
+    {
+      title: 'nothing',
+      desc: 'xxx',
+      img: 'xxxx',
+      id: 2
+    }
+  ]
+}
+const content = ref(previewContent)
 const list = ref([])
 const scorll = ref(0)
 // const { data } = await useFetch(
@@ -74,6 +92,24 @@ const handleScroll = () => {
     height: 900px;
     background-size: cover;
     background-position: center;
+    &-title {
+      color: #fff;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,
+        sans-serif;
+      font-size: 60px;
+      font-weight: 900;
+      padding: 300px 500px;
+    }
+    &-desc {
+      font-size: 40px;
+      margin-top: 50px;
+    }
+    &-btn {
+      margin-top: 30px;
+      width: 200px;
+      font-size: 48px;
+      height: 60px;
+    }
   }
   .banner1 {
     background-image: url(https://pic2.zhimg.com/v2-84695046fe3f6a97c1e6868a1a43f641_r.jpg);
@@ -83,18 +119,6 @@ const handleScroll = () => {
   }
   .banner3 {
     background-image: url(https://pic1.zhimg.com/v2-c2bc308ed73d97e1c27b8be03d73781c_r.jpg);
-  }
-  .banner-title {
-    color: #fff;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,
-      sans-serif;
-    font-size: 60px;
-    font-weight: 900;
-    padding: 300px 500px;
-  }
-  .banner-desc {
-    font-size: 40px;
-    margin-top: 50px;
   }
 }
 </style>

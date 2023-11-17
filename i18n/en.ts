@@ -21,5 +21,7 @@ export default {
   concate: 'Concate Us',
   newTry: 'This is our new attempt!',
   lyberpink: 'LyberPink',
-  whyus: 'Welcome to experience and use our product, it can balabala'
+  whyus: 'Welcome to experience and use our product, it can balabala',
+  go: 'GO',
+  whatWeDo: 'What We Are Doing'
 }

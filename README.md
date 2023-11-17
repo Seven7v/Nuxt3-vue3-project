@@ -1,75 +1,18 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3 Template
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+✨✨✨✨ 一个使用 nuxt3 完成的官网模板，（由于 nuxt3 的首屏 ssr，可以使官网内容更好的 seo
 
 ## Setup
 
-Make sure to install the dependencies:
+安装依赖并运行项目
 
-```bash
+```
 # npm
 npm install
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
 npm run dev
 
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+Start the development server on `http://localhost:3000`:
 ```
 
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+自带国际化内容，仅作参考

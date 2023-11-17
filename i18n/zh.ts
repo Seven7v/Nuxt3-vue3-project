@@ -20,5 +20,7 @@ export default {
   concate: '联系我们',
   newTry: '新尝试！',
   lyberpink: 'LyberPink',
-  whyus: '欢迎体验我们新的产品，他可以为你提供...'
+  whyus: '欢迎体验我们新的产品，他可以为你提供...',
+  go: '立即查看',
+  whatWeDo: '我们再做什么'
 }

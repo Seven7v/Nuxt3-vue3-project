@@ -2,7 +2,7 @@ export interface MenuItem {
   name: String
   desc?: String
   path: String
-  img?: 'String'
+  img?: String
   children?: Array<MenuItem>
 }
 
