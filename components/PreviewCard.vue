@@ -3,9 +3,15 @@
     <div class="card">
       <h2>{{ props.title }}</h2>
       <div class="card-content">
-        <div class="card-left" v-if="props.content.img || props.content.video">
-          <img :src="props.content.img" class="card-media" />
-        </div>
+        <div
+          class="card-left"
+          :style="{
+            backgroundImage: 'url(' + props.content.img + ')',
+            backgroundSize: '100% 100%',
+            backgroundRepeat: 'no-repeat'
+          }"
+          v-if="props.content.img || props.content.video"
+        ></div>
         <div class="card-right" v-if="props.content.consultList"></div>
       </div>
     </div>
@@ -41,10 +47,9 @@ const props = defineProps({
       display: flex;
     }
     &-left {
-    }
-    &-media {
       max-width: 1100px;
       border-radius: 10px;
+      height: 100%;
     }
   }
 }

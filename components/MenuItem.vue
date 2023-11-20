@@ -11,7 +11,6 @@
               </div>
             </div>
           </div>
-
           <div>
             <img class="menus-img" :src="current" alt="" />
           </div>
@@ -81,6 +80,25 @@ a {
   font-size: 16px;
   min-width: 240px;
   margin-bottom: 20px;
+}
+@media (max-width: 2250px) {
+  .el-popper {
+    width: 97vw !important;
+    left: 0;
+  }
+}
+@media (max-width: 1800px) {
+  .el-popper {
+    width: 94vw !important;
+    left: 0;
+  }
+}
+
+@media (max-width: 1500px) {
+  .el-popper {
+    width: 92vw !important;
+    left: 0;
+  }
 }
 .el-popper {
   width: 98vw;
