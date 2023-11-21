@@ -12,7 +12,9 @@
           }"
           v-if="props.content.img || props.content.video"
         ></div>
-        <div class="card-right" v-if="props.content.consultList"></div>
+        <div class="card-right" v-if="props.content.moreList">
+          <more-list :list="props.content.moreList" />
+        </div>
       </div>
     </div>
   </div>
@@ -48,6 +50,7 @@ const props = defineProps({
     }
     &-left {
       max-width: 1100px;
+      width: 65%;
       border-radius: 10px;
       height: 100%;
     }

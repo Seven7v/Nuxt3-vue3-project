@@ -23,5 +23,9 @@ export default {
   lyberpink: 'LyberPink',
   whyus: 'Welcome to experience and use our product, it can balabala',
   go: 'GO',
-  whatWeDo: 'What We Are Doing ?'
+  whatWeDo: 'What We Are Doing ?',
+  previewCard: {
+    title: 'Title',
+    desc: 'Product description'
+  }
 }

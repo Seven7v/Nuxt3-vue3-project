@@ -4,6 +4,10 @@ import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'url'
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  devServer: {
+    host: '0.0.0.0',
+    port: 3000
+    },
   //   页面过度
   app: {
     pageTransition: { name: 'app', mode: 'out-in' },
