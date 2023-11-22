@@ -17,6 +17,8 @@ html body {
   height: 100%;
   margin: 0;
   overflow-x: hidden;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,
+    sans-serif;
 }
 .app-enter-active,
 .app-leave-active {

@@ -1,9 +1,7 @@
 <template>
   <div>
-    <ProductDetail from="article"></ProductDetail>
+    <ProductDetail from="productDetail"></ProductDetail>
   </div>
 </template>
 
 <script setup lang="ts"></script>
-
-<style scoped></style>

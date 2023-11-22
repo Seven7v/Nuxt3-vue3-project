@@ -9,7 +9,7 @@
           <div class="banner-title">
             {{ $t(item.title) }}
             <div class="banner-desc">{{ $t(item.desc) }}</div>
-            <el-button class="banner-btn" type="primary" v-if="item.btn">
+            <el-button class="banner-btn" v-if="item.btn">
               {{ $t(item.btn) }}
             </el-button>
           </div>
@@ -17,11 +17,16 @@
       </el-carousel-item>
     </el-carousel>
     <preview-card :title="$t('whatWeDo')" :content="content" />
+    <div class="show-content">
+      <show-card :title="$t('whatWeHave')" :content="showContent"></show-card>
+      <show-card style="margin-top: 60px" :title="$t('news')" :content="showContent2"></show-card>
+    </div>
+    <JoinUS />
   </div>
 </template>
 
 <script setup lang="ts">
-import type { PreviewContent } from '~/types/home'
+import type { PreviewContent, ShowListItem } from '~/types/home'
 import { ref, onMounted } from 'vue'
 const bannerList = [
   {
@@ -44,6 +49,7 @@ const bannerList = [
 
 const previewContent: PreviewContent = {
   img: 'https://pic3.zhimg.com/v2-06f7dd55a1df07f7c962fa95f2945532_r.jpg',
+  title: 'beauty',
   moreList: [
     {
       title: 'title',
@@ -60,7 +66,7 @@ const previewContent: PreviewContent = {
     {
       title: 'title',
       desc: 'desc',
-      img: 'https://pic1.zhimg.com/80/v2-9dbe6dcb0de181647e84a8a2135932f0_1440w.webp',
+      img: 'https://pic2.zhimg.com/80/v2-ba5949ec2bd3508fad2031a71386d5bd_1440w.webp',
       id: 4
     },
     {
@@ -71,6 +77,73 @@ const previewContent: PreviewContent = {
     }
   ]
 }
+
+const showList: Array<ShowListItem> = [
+  {
+    title: 'proName',
+    desc: 'proDesc',
+    img: 'https://pic4.zhimg.com/80/v2-1a4c1d71e4a181ed1204a505cb0eaa23_1440w.webp',
+    id: 1
+  },
+  {
+    title: 'proName',
+    desc: 'proDesc',
+    img: 'https://pic1.zhimg.com/80/v2-9dbe6dcb0de181647e84a8a2135932f0_1440w.webp',
+    id: 2
+  },
+  {
+    title: 'proName',
+    desc: 'proDesc',
+    img: 'https://pic1.zhimg.com/80/v2-f6a4b4fc2fb29fc985e97c04e409d150_1440w.webp',
+    id: 3
+  },
+  {
+    title: 'proName',
+    desc: 'proDesc',
+    img: 'https://pic1.zhimg.com/80/v2-d72bc22911664ce37601b738689be5dc_1440w.webp',
+    id: 4
+  }
+]
+const showList2: Array<ShowListItem> = [
+  {
+    title: 'proName',
+    desc: 'proDesc',
+    img: 'https://pic3.zhimg.com/80/v2-a3e81a37b2d86970ad346b3d3e864912_1440w.webp',
+    id: 1
+  },
+  {
+    title: 'proName',
+    desc: 'proDesc',
+    img: 'https://pic1.zhimg.com/80/v2-1f713db7d4f71474b387fad0d7936580_1440w.webp',
+    id: 2
+  },
+  {
+    title: 'proName',
+    desc: 'proDesc',
+    img: 'https://pic4.zhimg.com/80/v2-bb2a80b35242409ecde163776b6d4c03_1440w.webp',
+    id: 3
+  },
+  {
+    title: 'proName',
+    desc: 'proDesc',
+    img: 'https://pic4.zhimg.com/80/v2-0485656f86e438e43904b25904376e9f_1440w.webp',
+    id: 4
+  },
+  {
+    title: 'proName',
+    desc: 'proDesc',
+    img: 'https://pic3.zhimg.com/80/v2-08df055fb24e8bc9e3004ea8a4d373f6_1440w.webp',
+    id: 6
+  },
+  {
+    title: 'proName',
+    desc: 'proDesc',
+    img: 'https://pic1.zhimg.com/80/v2-bc2970f701f1b066430b0f7bc06916e0_1440w.webp',
+    id: 7
+  }
+]
+const showContent = ref(showList)
+const showContent2 = ref(showList2)
 const content = ref(previewContent)
 const list = ref([])
 const scorll = ref(0)
@@ -124,10 +197,23 @@ const handleScroll = () => {
     }
     &-btn {
       margin-top: 30px;
-      width: 200px;
+      padding: 30px 50px !important;
       font-size: 48px;
-      height: 60px;
+      color: #000;
     }
+  }
+  .show-content {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,
+      sans-serif;
+    color: #fff;
+    // background: linear-gradient(#393939, #022043);
+    background: radial-gradient(
+      70.71% 70.71% at 50% 50%,
+      rgb(9, 31, 44) 0,
+      rgb(52, 51, 51) 75%,
+      rgb(39, 38, 38) 100%
+    );
+    padding: 50px;
   }
   .banner1 {
     background-image: url(https://pic2.zhimg.com/v2-84695046fe3f6a97c1e6868a1a43f641_r.jpg);

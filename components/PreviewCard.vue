@@ -11,7 +11,11 @@
             backgroundRepeat: 'no-repeat'
           }"
           v-if="props.content.img || props.content.video"
-        ></div>
+        >
+          <h2 v-if="props.content.title" class="card-title">
+            {{ $t(`previewCard.${props.content.title}`) }}
+          </h2>
+        </div>
         <div class="card-right" v-if="props.content.moreList">
           <more-list :list="props.content.moreList" />
         </div>
@@ -53,6 +57,17 @@ const props = defineProps({
       width: 65%;
       border-radius: 10px;
       height: 100%;
+    }
+    &-right {
+      flex: 1;
+    }
+    &-title {
+      width: 65%;
+      margin: 0 auto;
+      font-size: 48px;
+      line-height: 60px;
+      opacity: 0.6;
+      margin-top: 200px;
     }
   }
 }

@@ -15,7 +15,8 @@
 
 <script setup lang="ts">
 import type { Menus } from '~/types/menu'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watchEffect, watch } from 'vue'
+const route = useRoute()
 const menus: Array<Menus> = [
   {
     title: 'product',
@@ -73,11 +74,11 @@ const menus: Array<Menus> = [
         children: [
           {
             name: 'design',
-            path: '/product/introduce'
+            path: '/consult'
           },
           {
             name: 'preview',
-            path: '/product/introduce'
+            path: '/consult'
           }
         ]
       },
@@ -140,6 +141,24 @@ onMounted(() => {
   menuList.value = menus
 })
 const navStyle = useState('navStyle')
+
+const changeStyle = () => {
+  if (route.path === '/home') {
+    navStyle.value = {
+      backgroundColor: 'transparent'
+    }
+  } else {
+    navStyle.value = {
+      backgroundColor: '#000'
+    }
+    // 如果不打印会导致 card跳转顶部无颜色。先暂时这么处理
+    console.info(navStyle.value)
+    console.clear()
+  }
+}
+watchEffect(() => {
+  changeStyle()
+})
 </script>
 
 <style lang="scss" scoped>
@@ -152,7 +171,6 @@ const navStyle = useState('navStyle')
     display: block;
     margin: 10px;
   }
-
   .active {
     border-bottom: 2px solid #000;
   }
@@ -164,4 +182,3 @@ const navStyle = useState('navStyle')
   }
 }
 </style>
-../@types/menu

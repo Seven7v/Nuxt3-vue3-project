@@ -67,7 +67,7 @@ const mouseleaveItem = () => {
 }
 .menus-list {
   display: flex;
-  max-width: 1000px;
+  max-width: 700px;
   flex-wrap: wrap;
 }
 .menus-img {
@@ -79,7 +79,6 @@ a {
   color: #fff;
   font-size: 16px;
   min-width: 240px;
-  margin-bottom: 20px;
 }
 @media (max-width: 2250px) {
   .el-popper {

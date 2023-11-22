@@ -1,11 +1,5 @@
 <template>
-  <div class="mod-introduce">introduce</div>
+  <div class="mod-introduce">
+    <ProductDetail from="introduceDetail"></ProductDetail>
+  </div>
 </template>
-
-<script setup lang="ts"></script>
-
-<style scoped>
-.mod-introduce {
-  background: #333;
-}
-</style>
